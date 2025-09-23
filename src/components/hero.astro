@@ -1,0 +1,186 @@
+---
+import Textscroll from "./textscroll.astro";
+---
+
+<section class="hero">
+  <div class="hero-text">
+    <Textscroll />
+  </div>
+  <div class="hero-sections">
+    <div class="hero-contrast-bg">
+      <p><strong>Hej! 🙋‍♂️ Mit navn er Mads.</strong> <br />Jeg er 29 år og studerer multimediedesign på Erhvervsakademiet København.</p>
+      <a href="#about" class="main-button w-inline-block">
+        <div class="main-button-content">
+          <div class="main-button-text_w">
+            <div class="main-button-text">Mere om mig</div>
+            <div class="main-button-text">Mere om mig</div>
+          </div>
+          <div class="main-button-arrow_w">
+            <div class="main-button-arrow w-embed">
+              <svg width="100%" height="60%" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.99998 7.47745L3.49984 8L4.00019 7.4776L7 4.34317L6.49999 3.82077L3.81779 6.623L3.81779 0.73879L3.81779 0.369441L3.81779 1.66652e-07L-2.9349e-05 0L-2.93813e-05 0.738789L3.11066 0.73879L3.11066 6.54829L0.500025 3.82078L-1.90108e-07 4.34318L2.99998 7.47745Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <div class="main-button-fill"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="hero-image">
+      <img src="https://placehold.co/400x400" alt="Portræt af Mads (placeholder)" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-sections {
+    display: flex;
+    gap: 1rem;
+    padding-block: 2rem;
+    padding-inline: 4rem;
+  }
+
+  .hero-contrast-bg {
+    padding: 2rem;
+    flex: 1;
+    border-radius: 15px;
+    border: 2px solid var(--color-medium);
+    background: var(--color-dark);
+    color: var(--color-light-bg);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: all 0.3s;
+    position: relative;
+  }
+  html.dark-theme .hero-contrast-bg {
+    background: var(--color-light);
+  }
+
+  .hero-contrast-bg p {
+    font-size: 1.8rem;
+    color: var(--color-lightest);
+    transition: color 0.3s;
+  }
+
+  html.dark-theme .hero-contrast-bg p {
+    color: var(--color-darkest);
+  }
+
+  .hero-image {
+    flex: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+  .hero-image img {
+    width: 100%;
+    min-width: 100%;
+    min-height: 60vh;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+  .main-button.w-inline-block {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+    text-decoration: none;
+    z-index: 2;
+    display: inline-block;
+  }
+  .main-button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: none;
+    color: var(--color-darkest);
+    font-size: 0.7rem;
+    font-family: inherit;
+    font-weight: 700;
+    border: 2px solid var(--color-darkest);
+    border-radius: 100px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-button-text_w {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 1.2em;
+    overflow: hidden;
+  }
+  .main-button-text {
+    line-height: 1.2em;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: inherit;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .main-button-text_w .main-button-text:last-child {
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .main-button-arrow_w {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 2em;
+    height: 2em;
+  }
+  .main-button-arrow.w-embed {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  .main-button-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1;
+  }
+  .main-button-content:hover {
+    background-color: var(--color-darkest);
+    color: var(--color-accent);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .main-button-content:hover .main-button-text {
+    transform: translateY(-100%);
+  }
+  .main-button-content:hover .main-button-text:last-child {
+    transform: translateY(-100%);
+  }
+  @media (max-width: 900px) {
+    .hero-sections {
+      margin: 0 auto;
+      flex-direction: column;
+      padding-inline: 1rem;
+    }
+    .hero-contrast-bg {
+      min-height: 45vh;
+    }
+  }
+</style>

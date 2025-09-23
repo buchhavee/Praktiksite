@@ -1,0 +1,54 @@
+---
+
+---
+
+<div class="textscroll">
+  <span>MULTIMEDIEDESIGN, FRONTEND MULTIMEDIEDESIGN, FRONTEND MULTIMEDIEDESIGN, FRONTEND</span>
+</div>
+
+<style>
+  .textscroll {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .textscroll span {
+    display: inline-block;
+    font-family: "polymath", serif;
+    font-size: 20em;
+    font-weight: 900;
+    color: var(--color-black);
+    letter-spacing: 0em;
+    animation: scroll-text 30s linear infinite;
+    will-change: transform;
+    transition: color 0.3s;
+  }
+  html.dark-theme .textscroll span {
+    color: var(--color-lightest);
+  }
+  html:not(.dark-theme) .textscroll span {
+    color: var(--color-black);
+  }
+
+  @keyframes scroll-text {
+    0% {
+      transform: translateX(100vw);
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+  @media (max-width: 767px) {
+    .textscroll {
+      margin: 5rem 0 1rem 0;
+    }
+
+    .textscroll span {
+      font-size: 4em;
+    }
+  }
+</style>

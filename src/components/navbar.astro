@@ -1,0 +1,162 @@
+<nav class="navbar">
+  <div class="navbar__content">
+    <div class="navbar__left">
+      <span class="navbar__name">Mads Buchhave.</span>
+    </div>
+    <div class="navbar__right">
+      <div class="theme-switch-uiverse">
+        <input id="theme-switch" type="checkbox" />
+        <label for="theme-switch" class="uiverse-label">
+          <span class="uiverse-icons">
+            <span class="uiverse-circle"></span>
+            <span class="uiverse-crescent"></span>
+          </span>
+          <span class="uiverse-toggle"></span>
+          <span class="uiverse-names">
+            <span class="light">Light</span>
+            <span class="dark">Dark</span>
+          </span>
+        </label>
+      </div>
+      <button class="burger" id="burger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="menu-overlay" id="menu-overlay">
+    <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
+    <ul class="menu-list">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <style>
+    .navbar {
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+
+    .navbar__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem 0 4rem;
+      min-height: 6rem;
+      width: 100%;
+      box-sizing: border-box;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transition: background 0.3s;
+      mask-image: linear-gradient(to bottom, black 100%, rgba(0, 0, 0, 1) 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 60%, rgba(0, 0, 0, 0.5) 80%, transparent 100%);
+    }
+    .navbar__left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    .navbar__right {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1.2rem;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .burger {
+      padding: 10px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      background: var(--color-lightest);
+      border-radius: 100%;
+      border: none;
+      cursor: pointer;
+      z-index: 101;
+    }
+    .burger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: var(--color-black);
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+    .dark-theme .burger span {
+      background: var(--color-lightest);
+    }
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--color-dark-bg);
+      color: var(--color-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 200;
+    }
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .close-menu {
+      position: absolute;
+      top: 1.3rem;
+      right: 2.7rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: var(--color-white);
+      cursor: pointer;
+    }
+    .menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    .menu-list a {
+      color: var(--color-white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .menu-list a:hover {
+      color: var(--color-accent);
+    }
+    @media (max-width: 900px) {
+      .navbar__content {
+        padding: 1.2rem 1rem;
+        min-height: 3.2rem;
+      }
+      .navbar__name {
+        font-size: 1.8rem;
+      }
+      .menu-list {
+        font-size: 1.5rem;
+      }
+      .close-menu {
+      top: 1.1rem;
+      right: 1.7rem;
+    }
+  </style>
+</nav>

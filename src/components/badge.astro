@@ -1,0 +1,122 @@
+---
+// Props: svg (string, raw SVG markup eller emoji), title (string), description (string), tags (array)
+const { svg = "", title = "", description = "", tags = [] } = Astro.props;
+---
+
+<div class="badge-card">
+  {svg && <div class="badge-card__icon" set:html={svg} />}
+  <div class="badge-card__title">{title}</div>
+  <p class="badge-card__desc">{description}</p>
+  <p class="badge-card__tags">
+    {Array.isArray(tags) && tags.map((tag) => <span class="badge-tag">{tag}</span>)}
+  </p>
+</div>
+
+<style>
+  .badge-card {
+    background: var(--color-darker);
+    color: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #333;
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 270px;
+    max-width: 340px;
+    min-height: 340px;
+    margin: 0.7rem;
+    position: relative;
+    transition:
+      box-shadow 0.2s,
+      border 0.2s;
+  }
+  .badge-card__icon {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.2rem;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+  .badge-card__icon svg,
+  .badge-card__icon img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
+  .badge-card__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.1rem;
+    font-family: "polymath-display", sans-serif;
+    line-height: 1.1;
+  }
+  .badge-card__desc {
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 2.2rem;
+    color: var(--color-medium);
+    line-height: 1.5;
+    min-height: 70px;
+  }
+
+  .badge-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: auto;
+  }
+
+  .badge-tag {
+    display: inline-block;
+    padding: 0.18em 1.1em;
+    border-radius: 1.2em;
+    background: transparent;
+    color: var(--color-medium);
+    border: 1px solid var(--color-medium);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    user-select: none;
+    margin-bottom: 0.2em;
+  }
+
+  html.dark-theme .badge-card {
+    background: #232323;
+    color: #fff;
+    border: 1px solid #444;
+  }
+  html.dark-theme .badge-tag {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  @media (max-width: 600px) {
+    .badge-card {
+      min-width: 90vw;
+      max-width: 98vw;
+      padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+    }
+    .badge-card__icon {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 1.2rem;
+    }
+    .badge-card__title {
+      font-size: 1.2rem;
+    }
+    .badge-card__desc {
+      font-size: 1rem;
+      min-height: 40px;
+      margin-bottom: 1.2rem;
+    }
+  }
+</style>

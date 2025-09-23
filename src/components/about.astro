@@ -1,0 +1,88 @@
+<section class="section-split fade-in-section" id="about">
+  <div class="section-split__inner">
+    <div class="section-divider"></div>
+    <div class="section-content">
+        <div class="section-split__header fade-in-left">
+             <h2>OM MIG</h2>
+        </div>
+        <div class="section-split__content">
+        <p>As a creative developer, I focus on both design and development — allowing me to work on projects from concept until the very moment we hit publish. Unique layouts, interactions and great typography is what I focus on when working on websites.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-split__inner {
+    padding: 6rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-divider {
+    position: absolute;
+    left: 4rem;
+    right: 4rem;
+    height: 2px;
+    background: var(--color-dark);
+    content: '';
+    z-index: 1;
+    opacity: 1 ;
+    pointer-events: none;
+    display: block ;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-block: 2rem;
+  }
+
+  .section-split__header {
+    flex: 1 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .section-split__header h2 {
+    font-size: 4rem;
+    font-family: "polymath-display", sans-serif;
+    font-weight: 1000;
+    margin: 0;
+  }
+  .section-split__content {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .section-split__content p {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .section-split__inner {
+      padding: 0 1rem;
+    }
+    .section-split {
+      padding: 2rem 0;
+    }
+    .section-split__header,
+    .section-split__content {
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .section-split__header h2 {
+      font-size: 2.2rem;
+    }
+    .section-split__content p {
+      font-size: 1.3rem;
+    }
+    .section-divider {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+}
+</style>

@@ -1,0 +1,139 @@
+---
+import Badge from "./badge.astro";
+---
+
+<section class="section-split fade-in-section" id="badgesection">
+  <div class="section-split__inner">
+    <div class="section-divider"></div>
+    <div class="section-content">
+      <div class="section-split__header fade-in-left">
+        <h2>ERFARING</h2>
+      </div>
+      <div class="section-split__content">
+        <div class="badges-grid">
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="24" fill="#fff"/><path d="M24 10L28 24H20L24 10Z" fill="#FF5A00"/></svg>' title="Astro" description="Astro er et moderne web framework til hurtige, statiske og dynamiske sites." tags={["Astro", "Web", "Framework"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="24" fill="#E44D26" font-family="Arial"></></text></svg>' title="HTML" description="Strukturen bag alle websites. HTML bruges til at opbygge indhold og layout." tags={["HTML", "Markup"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="24" fill="#F7DF1E" font-family="Arial">JS</text></svg>' title="JavaScript" description="Programmeringssproget til interaktive og dynamiske weboplevelser." tags={["JavaScript", "Web", "Scripting"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="24" fill="#1572B6" font-family="Arial">CSS</text></svg>' title="CSS" description="CSS bruges til at style og animere websider." tags={["CSS", "Styling"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="20" fill="#00B8D9" font-family="Arial">API</text></svg>' title="API" description="Integrationer og dataudveksling mellem systemer via API'er." tags={["API", "Integration"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="18" fill="#336791" font-family="Arial">PG</text></svg>' title="PostgreSQL" description="Avanceret open source database til web og apps." tags={["PostgreSQL", "Database"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="18" fill="#A259FF" font-family="Arial">Figma</text></svg>' title="Figma" description="Design og prototyping af brugerflader og flows." tags={["Figma", "Design"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="16" fill="#FF0000" font-family="Arial">Adobe</text></svg>' title="Adobe CC" description="Kreative værktøjer til grafik, video og foto." tags={["Adobe", "Creative Cloud"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="16" fill="#1A73E8" font-family="Arial">Logic</text></svg>' title="Logic Pro" description="Professionel musikproduktion og lydredigering." tags={["Logic Pro", "Audio"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="14" fill="#000" font-family="Arial">Ableton</text></svg>' title="Ableton Live" description="Live performance og musikproduktion." tags={["Ableton Live", "Audio"]} />
+          <Badge svg='<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="12" fill="#fff"/><text x="24" y="32" text-anchor="middle" font-size="13" fill="#4A90E2" font-family="Arial">DaVinci</text></svg>' title="DaVinci Resolve" description="Avanceret videoredigering og color grading." tags={["DaVinci Resolve", "Video"]} />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-split__inner {
+    padding: 6rem 4rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-divider {
+    position: absolute;
+    left: 4rem;
+    right: 4rem;
+    height: 2px;
+    background: var(--color-dark);
+    content: "";
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+    display: block;
+  }
+
+  .section-content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding-block: 2rem;
+  }
+
+  .section-split__header {
+    flex: 1 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+  .section-split__header h2 {
+    font-size: 4rem;
+    font-family: "polymath-display", sans-serif;
+    font-weight: 1000;
+    margin: 0;
+  }
+  .section-split__content {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+  }
+  .section-split__content p {
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin: 0;
+  }
+
+  .badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+
+  @media (max-width: 900px) {
+    .section-split__inner {
+      padding: 0 1rem;
+    }
+    .section-split {
+      padding: 2rem 0;
+    }
+    .section-split__header,
+    .section-split__content {
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .section-split__header h2 {
+      font-size: 2.2rem;
+    }
+    .section-split__content p {
+      font-size: 1.3rem;
+    }
+
+    .section-divider {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+    }
+
+    .badges-grid {
+      gap: 0.7rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .badges-grid {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .section-content {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .section-split__inner {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+</style>
