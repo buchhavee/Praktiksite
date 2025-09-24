@@ -2,10 +2,10 @@
 import Textscroll from "./textscroll.astro";
 ---
 
+<div class="hero-text">
+  <Textscroll />
+</div>
 <section class="hero">
-  <div class="hero-text">
-    <Textscroll />
-  </div>
   <div class="hero-sections">
     <div class="hero-contrast-bg">
       <p><strong>Hej! 🙋‍♂️ Mit navn er Mads.</strong> <br />Jeg er 29 år og studerer multimediedesign på Erhvervsakademiet København.</p>
@@ -36,8 +36,6 @@ import Textscroll from "./textscroll.astro";
   .hero-sections {
     display: flex;
     gap: 1rem;
-    padding-block: 2rem;
-    padding-inline: 4rem;
   }
 
   .hero-contrast-bg {
@@ -52,6 +50,7 @@ import Textscroll from "./textscroll.astro";
     justify-content: center;
     transition: all 0.3s;
     position: relative;
+    min-height: 260px;
   }
   html.dark-theme .hero-contrast-bg {
     background: var(--color-light);
@@ -94,53 +93,100 @@ import Textscroll from "./textscroll.astro";
   .main-button-content {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: none;
+    gap: 0.6rem;
+    padding: 0.7rem 1.4rem;
+    background: var(--color-lightest);
     color: var(--color-darkest);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-family: inherit;
     font-weight: 700;
-    border: 2px solid var(--color-darkest);
+    border: 2px solid var(--color-medium);
     border-radius: 100px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     cursor: pointer;
     letter-spacing: 0.05em;
     transition:
-      background 0.2s,
-      color 0.2s,
-      box-shadow 0.2s;
+      background 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.2s ease;
     position: relative;
     overflow: hidden;
+  }
+
+  .main-button-content:hover {
+    color: var(--color-lightest);
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .main-button-arrow_w {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 1.6em;
+    height: 1.6em;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  .main-button-arrow_w::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2em;
+    height: 2em;
+    background: var(--color-accent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .main-button-content:hover .main-button-arrow_w::before {
+    transform: translate(-50%, -50%) scale(15);
+  }
+
+  .main-button-content:hover .main-button-arrow_w {
+    transform: rotate(90deg);
+  }
+
+  .main-button-content:hover .main-button-arrow.w-embed {
+    color: var(--color-darkest);
+  }
+
+  .main-button-content:hover {
+    color: var(--color-darkest);
+    box-shadow: 0 6px 32px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
   }
   .main-button-text_w {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 1.2em;
+    height: 1.4em;
     overflow: hidden;
+    line-height: 1.2;
+    z-index: 3;
   }
   .main-button-text {
-    line-height: 1.2em;
-    font-size: 1.2em;
+    line-height: 1.2;
+    font-size: 1.1em;
     font-weight: 700;
     color: inherit;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   .main-button-text_w .main-button-text:last-child {
-    color: var(--color-accent);
+    color: var(--color-lightest);
     position: absolute;
     left: 0;
     top: 100%;
     width: 100%;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .main-button-arrow_w {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 2em;
-    height: 2em;
   }
   .main-button-arrow.w-embed {
     width: 100%;
@@ -149,6 +195,8 @@ import Textscroll from "./textscroll.astro";
     align-items: center;
     justify-content: center;
     z-index: 2;
+    color: var(--color-lightest);
+    transition: color 0.3s ease;
   }
   .main-button-fill {
     position: absolute;
@@ -172,15 +220,5 @@ import Textscroll from "./textscroll.astro";
   }
   .main-button-content:hover .main-button-text:last-child {
     transform: translateY(-100%);
-  }
-  @media (max-width: 900px) {
-    .hero-sections {
-      margin: 0 auto;
-      flex-direction: column;
-      padding-inline: 1rem;
-    }
-    .hero-contrast-bg {
-      min-height: 55vh;
-    }
   }
 </style>
