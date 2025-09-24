@@ -1,0 +1,415 @@
+---
+// Portfolio component med placeholder billeder og scroll animationer
+---
+
+<section class="portfolio">
+  <div class="portfolio__container">
+    <div class="portfolio__header fade-in-section">
+      <h2>Mine Projekter</h2>
+      <p>Her er nogle af de ting jeg har arbejdet på</p>
+    </div>
+
+    <div class="portfolio__diagonal-grid">
+      <div class="portfolio__item portfolio__item--1" data-index="1">
+        <img src="../../public/images/portfolio-nb-9t7.jpg" alt="Projekt 1" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>New Balance & 9t7 “Better Together”</h3>
+          <p>En CPH Marathon dokumentar</p>
+        </div>
+      </div>
+
+      <div class="portfolio__item portfolio__item--2" data-index="2">
+        <img src="../../public/images/portfolio-kaleg.jpg" alt="Projekt 2" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>Kaleg “Together we rise”</h3>
+          <p>En reklame for brandet Kaleg</p>
+        </div>
+      </div>
+
+      <div class="portfolio__item portfolio__item--3" data-index="3">
+        <img src="../../public/images/portfolio-ozzy.jpg" alt="Projekt 3" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>Ozzy</h3>
+          <p>Jeg har produceret sangene "Samme side", "Visner", "Gå, Bare Lidt" og "Indre" <br /> "Samme Side" er blevet certificeret guld i Danmark.</p>
+        </div>
+      </div>
+
+      <div class="portfolio__item portfolio__item--4" data-index="4">
+        <img src="../../public/images/portfolio-kc.png" alt="Projekt 4" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>2. semester eksamen</h3>
+          <p>Min eksamen i 2. semester bestod af et gruppeprojekt, hvor vi udarbejdede en komplet hjemmeside og digital tilstedeværelse for vinimportøren Kahlenberg & Christiansen.</p>
+        </div>
+      </div>
+
+      <div class="portfolio__item portfolio__item--5" data-index="5">
+        <img src="../../public/images/portfolio-campari.png" alt="Projekt 5" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>Campari “Negroni week”</h3>
+          <p>En kampagne for Campari i forbindelse med "Negroni week".</p>
+        </div>
+      </div>
+
+      <div class="portfolio__item portfolio__item--6" data-index="6">
+        <img src="../../public/images/portfolio-quint.png" alt="Projekt 6" loading="lazy" />
+        <div class="portfolio__overlay">
+          <h3>Quint “Hive Mind-serie”</h3>
+          <p>En serie af videoer og kampagner for Quint, der udforsker emner som mental sundhed og fællesskab.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    max-width: 2100px;
+    overflow: visible;
+    position: relative;
+  }
+
+  .portfolio__container {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .portfolio__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .portfolio__header h2 {
+    margin-bottom: 1rem;
+  }
+
+  .portfolio__header p {
+    opacity: 0.8;
+  }
+
+  .portfolio__diagonal-grid {
+    position: relative;
+    min-height: 1200px;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    padding-bottom: 4rem;
+  }
+
+  .portfolio__item {
+    position: absolute;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 500px;
+    height: 380px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px) scale(0.8) rotateX(15deg);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    will-change: transform, opacity;
+  }
+
+  .portfolio__item.animate-in {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+
+  .portfolio__item:hover {
+    transform: translateY(-15px) scale(1.05) rotateX(2deg);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+  }
+
+  /* Skrå diagonal placering fra venstre top til højre bund */
+  .portfolio__item--1 {
+    top: 0;
+    left: 0;
+    z-index: 6;
+  }
+
+  .portfolio__item--2 {
+    top: 150px;
+    left: 12%;
+    z-index: 5;
+  }
+
+  .portfolio__item--3 {
+    top: 300px;
+    left: 24%;
+    z-index: 4;
+  }
+
+  .portfolio__item--4 {
+    top: 450px;
+    left: 36%;
+    z-index: 3;
+  }
+
+  .portfolio__item--5 {
+    top: 600px;
+    left: 48%;
+    z-index: 2;
+  }
+
+  .portfolio__item--6 {
+    top: 750px;
+    left: 64%;
+    z-index: 1;
+  }
+
+  .portfolio__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .portfolio__item:hover img {
+    transform: scale(1.1);
+  }
+
+  .portfolio__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+    color: white;
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+
+  .portfolio__item:hover .portfolio__overlay {
+    transform: translateY(0);
+  }
+
+  .portfolio__overlay h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+  }
+
+  .portfolio__overlay p {
+    opacity: 0.9;
+    font-size: 1rem;
+  }
+
+  /* Responsivt design */
+  /* Store skærme 1800px+ */
+  @media (min-width: 1800px) {
+    .portfolio {
+      padding: 10rem 4rem;
+    }
+
+    .portfolio__item {
+      width: 550px;
+      height: 420px;
+    }
+
+    .portfolio__diagonal-grid {
+      min-height: 110vh;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    .portfolio__item--1 {
+      left: 0;
+    }
+    .portfolio__item--2 {
+      left: 12%;
+    }
+    .portfolio__item--3 {
+      left: 24%;
+    }
+    .portfolio__item--4 {
+      left: 36%;
+    }
+    .portfolio__item--5 {
+      left: 48%;
+    }
+    .portfolio__item--6 {
+      left: 60%;
+    }
+  }
+
+  /* Tablet layout - 2 kolonner */
+  @media (max-width: 1200px) and (min-width: 768px) {
+    .portfolio__diagonal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      min-height: auto;
+      height: fit-content;
+      padding-bottom: 4rem;
+      max-width: 800px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    .portfolio__item {
+      width: 320px;
+      height: 250px;
+      position: relative;
+      margin: 0;
+    }
+
+    .portfolio__item--1,
+    .portfolio__item--2,
+    .portfolio__item--3,
+    .portfolio__item--4,
+    .portfolio__item--5,
+    .portfolio__item--6 {
+      top: auto;
+      left: auto;
+      position: relative;
+    }
+  }
+
+  /* Mobile layout - 1 kolonne */
+  @media (max-width: 767px) {
+    .portfolio {
+      padding: 4rem 1rem;
+    }
+
+    .portfolio__container {
+      gap: 3rem;
+    }
+
+    .portfolio__diagonal-grid {
+      min-height: auto;
+      height: fit-content;
+      padding-bottom: 2rem;
+    }
+
+    .portfolio__item {
+      width: calc(100vw - 2rem);
+      max-width: 400px;
+      height: 250px;
+      margin: 0 auto 2rem auto;
+      left: auto;
+      transform: translateY(100px) scale(0.8);
+      position: relative;
+    }
+
+    .portfolio__item.animate-in {
+      transform: translateY(0) scale(1);
+    }
+
+    .portfolio__item:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .portfolio__item--1,
+    .portfolio__item--2,
+    .portfolio__item--3,
+    .portfolio__item--4,
+    .portfolio__item--5,
+    .portfolio__item--6 {
+      top: auto;
+      position: relative;
+    }
+
+    .portfolio__overlay {
+      padding: 1.5rem;
+      position: static;
+      transform: none;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    }
+
+    .portfolio__overlay h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Dark theme support */
+  .dark-theme .portfolio__item {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  }
+
+  .dark-theme .portfolio__item:hover {
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+  }
+</style>
+
+<script>
+  // Intersection Observer for sequential scroll animations
+  function initPortfolioAnimations() {
+    const portfolioItems = document.querySelectorAll(".portfolio__item");
+    let animatedItems = new Set();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const target = entry.target as HTMLElement;
+            const index = parseInt(target.dataset.index || "0");
+
+            if (!animatedItems.has(index)) {
+              // Delay animation based on order - sequential reveal
+              const delay = (index - 1) * 200; // 200ms delay between each item
+
+              setTimeout(() => {
+                target.classList.add("animate-in");
+                animatedItems.add(index);
+              }, delay);
+            }
+
+            // Don't unobserve immediately to allow for re-triggering if needed
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of item is visible
+        rootMargin: "0px 0px -10% 0px", // Start animation slightly before item comes into view
+      }
+    );
+
+    // Observe all portfolio items
+    portfolioItems.forEach((item) => {
+      observer.observe(item);
+    });
+
+    // Optional: Add scroll-based parallax effect for enhanced smoothness
+    let ticking = false;
+
+    function updateParallax() {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * -0.1;
+
+      portfolioItems.forEach((item, index) => {
+        const target = item as HTMLElement;
+        if (target.classList.contains("animate-in")) {
+          // Skip parallax on mobile to avoid transform conflicts
+          if (window.innerWidth > 767) {
+            const parallaxRate = rate * (index + 1) * 0.1;
+            target.style.transform += ` translateZ(${parallaxRate}px)`;
+          }
+        }
+      });
+
+      ticking = false;
+    }
+
+    function requestParallaxTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }
+
+    // Add smooth scroll listener for parallax (disabled on mobile)
+    if (window.innerWidth > 767) {
+      window.addEventListener("scroll", requestParallaxTick);
+    }
+  }
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", initPortfolioAnimations);
+
+  // Re-initialize for Astro client-side routing
+  document.addEventListener("astro:page-load", initPortfolioAnimations);
+</script>

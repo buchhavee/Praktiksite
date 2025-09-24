@@ -23,8 +23,9 @@ const { svg = "", title = "", description = "", tags = [] } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    min-width: 270px;
-    max-width: 340px;
+    min-width: 260px;
+    max-width: 320px;
+    width: 100%;
     min-height: 340px;
     margin: 0.7rem;
     position: relative;
@@ -101,9 +102,11 @@ const { svg = "", title = "", description = "", tags = [] } = Astro.props;
   }
   @media (max-width: 600px) {
     .badge-card {
-      min-width: 90vw;
-      max-width: 98vw;
+      min-width: 0;
+      max-width: 100%;
+      width: 100%;
       padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+      margin: 0.4rem 0;
     }
     .badge-card__icon {
       width: 54px;
