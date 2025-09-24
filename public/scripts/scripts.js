@@ -33,7 +33,6 @@ function setupThemeAndMenu() {
       html.classList.remove("dark-theme");
       localStorage.setItem("theme", "light");
     }
-    console.log("Theme toggled:", themeSwitch.checked ? "dark" : "light");
   });
 
   const burger = document.getElementById("burger");
@@ -47,8 +46,76 @@ function setupThemeAndMenu() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  setupThemeAndMenu();
+// Portfolio animations and Intersection Observer
+function initPortfolioAnimations() {
+  const portfolioItems = document.querySelectorAll(".portfolio__item");
+  let animatedItems = new Set();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const index = parseInt(target.dataset.index || "0");
+
+          if (!animatedItems.has(index)) {
+            // Delay animation based on order - sequential reveal
+            const delay = (index - 1) * 200; // 200ms delay between each item
+
+            setTimeout(() => {
+              target.classList.add("animate-in");
+              animatedItems.add(index);
+            }, delay);
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.2, // Trigger when 20% of item is visible
+      rootMargin: "0px 0px -10% 0px", // Start animation slightly before item comes into view
+    }
+  );
+
+  // Observe all portfolio items
+  portfolioItems.forEach((item) => {
+    observer.observe(item);
+  });
+
+  // Optional: Add scroll-based parallax effect for enhanced smoothness
+  let ticking = false;
+
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.1;
+
+    portfolioItems.forEach((item, index) => {
+      if (item.classList.contains("animate-in")) {
+        // Skip parallax on mobile to avoid transform conflicts
+        if (window.innerWidth > 767) {
+          const parallaxRate = rate * (index + 1) * 0.1;
+          item.style.transform = `translateZ(${parallaxRate}px)`;
+        }
+      }
+    });
+
+    ticking = false;
+  }
+
+  function requestParallaxTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  // Add smooth scroll listener for parallax (disabled on mobile)
+  if (window.innerWidth > 767) {
+    window.addEventListener("scroll", requestParallaxTick);
+  }
+}
+
+// General fade-in animations for other sections
+function initGeneralAnimations() {
   function onVisible(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -58,23 +125,35 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
   const fadeEls = document.querySelectorAll(".fade-in-section, .fade-in-left");
-  // Threshold 0: fade-in starter straks elementet rammer viewporten
   const observer = new IntersectionObserver(onVisible, { threshold: 0 });
   fadeEls.forEach((el) => observer.observe(el));
+}
 
-  // Smooth scroll med offset til #about
+// Smooth scroll setup
+function initSmoothScroll() {
   document.querySelectorAll('a[href="#about"]').forEach((link) => {
     link.addEventListener("click", function (e) {
       const target = document.getElementById("about");
       if (target) {
         e.preventDefault();
-        // Korrekt offset: negativ værdi, og window.innerWidth check i parentes
-        const yOffset = window.innerWidth < 500 ? -80 : -112; // ca. -5rem/-7rem afhængig af skærm
+        const yOffset = window.innerWidth < 500 ? -80 : -112;
         const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
       }
     });
   });
-});
-document.addEventListener("astro:after-swap", setupThemeAndMenu);
+}
+
+// Initialize all functionality
+function initializeApp() {
+  setupThemeAndMenu();
+  initGeneralAnimations();
+  initSmoothScroll();
+  initPortfolioAnimations();
+}
+
+window.addEventListener("DOMContentLoaded", initializeApp);
+document.addEventListener("astro:after-swap", initializeApp);
+document.addEventListener("astro:page-load", initializeApp);

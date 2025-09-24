@@ -43,15 +43,12 @@ import Badge from "./badge.astro";
 
 <style>
   .section-split__inner {
-    padding: 2rem 4rem;
     width: 100%;
     box-sizing: border-box;
   }
 
   .section-divider {
     position: absolute;
-    left: 4rem;
-    right: 4rem;
     height: 2px;
     background: var(--color-dark);
     content: "";
@@ -111,68 +108,5 @@ import Badge from "./badge.astro";
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.2rem;
     width: 100%;
-    justify-items: stretch;
-    align-items: stretch;
-  }
-
-  @media (max-width: 768px) {
-    .section-split__inner {
-      padding: 0 1rem;
-    }
-    .section-split {
-      padding: 2rem 0;
-    }
-    .section-split__header,
-    .section-split__content {
-      justify-content: flex-start;
-      text-align: left;
-    }
-    .section-split__header h2 {
-      font-size: 2.2rem;
-    }
-    .section-split__content p {
-      font-size: 1.3rem;
-    }
-
-    .section-divider {
-      position: absolute;
-      left: 1rem;
-      right: 1rem;
-    }
-
-    .badges-grid {
-      gap: 0.7rem;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .badges-grid {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-      justify-items: end;
-    }
-    .section-content {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-    .section-split__inner {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-    .section-split__header {
-      position: relative;
-      top: 0;
-      padding-bottom: 2rem;
-    }
-    .section-split__header p {
-      max-width: 90vw;
-    }
-  }
-
-  @media (max-width: 490px) {
-    .section-content {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
   }
 </style>

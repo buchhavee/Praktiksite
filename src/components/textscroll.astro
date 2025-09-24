@@ -1,14 +1,12 @@
----
-
----
-
 <div class="textscroll">
   <span>MULTIMEDIEDESIGN, FRONTEND MULTIMEDIEDESIGN, FRONTEND MULTIMEDIEDESIGN, FRONTEND</span>
 </div>
 
 <style>
   .textscroll {
-    width: 100vw;
+    display: flex;
+    min-height: 150px;
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
     position: relative;
@@ -40,15 +38,6 @@
     }
     100% {
       transform: translateX(-100vw);
-    }
-  }
-  @media (max-width: 767px) {
-    .textscroll {
-      margin: 7rem 0 1rem 0;
-    }
-
-    .textscroll span {
-      font-size: 4em;
     }
   }
 </style>
