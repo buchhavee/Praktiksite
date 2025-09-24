@@ -62,5 +62,19 @@ window.addEventListener("DOMContentLoaded", () => {
   // Threshold 0: fade-in starter straks elementet rammer viewporten
   const observer = new IntersectionObserver(onVisible, { threshold: 0 });
   fadeEls.forEach((el) => observer.observe(el));
+
+  // Smooth scroll med offset til #about
+  document.querySelectorAll('a[href="#about"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const target = document.getElementById("about");
+      if (target) {
+        e.preventDefault();
+        // Korrekt offset: negativ værdi, og window.innerWidth check i parentes
+        const yOffset = window.innerWidth < 500 ? -80 : -112; // ca. -5rem/-7rem afhængig af skærm
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    });
+  });
 });
 document.addEventListener("astro:after-swap", setupThemeAndMenu);
