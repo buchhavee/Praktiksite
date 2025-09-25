@@ -365,6 +365,7 @@ input#theme-switch {
 
   .hero-sections {
     padding: 0 4rem;
+    max-height: 800px;
   }
 
   .portfolio {
@@ -533,6 +534,10 @@ input#theme-switch {
 
   h4 {
     font-size: 1.125rem;
+  }
+
+  .hero-image {
+    max-height: 450px;
   }
 
   .section-split__inner {
