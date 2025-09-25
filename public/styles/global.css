@@ -350,6 +350,10 @@ input#theme-switch {
 
 /* Media querry desktop (1200px)*/
 @media (min-width: 1200px) {
+  .hero-contrast-bg {
+    padding: 4rem !important;
+  }
+
   .section-split__inner {
     padding: 4rem;
   }

@@ -39,10 +39,6 @@
           <a href="#" class="footer__top-link">Tilbage til toppen</a>
         </div>
       </div>
-
-      <div class="footer__copyright">
-        <p>©2025 – All Rights Reserved</p>
-      </div>
     </div>
   </div>
 </footer>
@@ -72,7 +68,7 @@
     display: grid;
     grid-template-rows: auto 1fr auto auto;
     min-height: 80vh;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .footer__header {
@@ -150,10 +146,11 @@
     flex-direction: column;
     text-align: center;
     margin: 2rem 0;
+    gap: 1rem;
   }
 
   .footer__contact-text {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
     opacity: 0.9;
     color: var(--color-text);
@@ -165,13 +162,13 @@
     text-decoration: none;
     font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 500;
-    transition:
-      opacity 0.3s ease,
-      color 0.3s;
+    transition: all 0.3s ease;
   }
 
   .footer__email:hover {
     opacity: 0.7;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
   }
 
   .footer__bottom {
@@ -253,7 +250,7 @@
 
   @media (max-width: 768px) {
     .footer {
-      padding: 3rem 1rem;
+      padding: 3rem 1rem 0 1rem;
     }
 
     .footer__title {
@@ -261,7 +258,7 @@
     }
 
     .footer__hand-emoji {
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(2rem, 6vw, 4rem);
     }
   }
 </style>
