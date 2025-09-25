@@ -112,7 +112,6 @@ h4 {
 p,
 span,
 button {
-  font-size: clamp(0.9rem, 1.5vw, 1.125rem);
   font-variation-settings: "wght" 200;
   line-height: 1.5;
   font-family: helvetica-lt-pro, sans-serif;
@@ -147,11 +146,11 @@ a {
   }
 
   h2 {
-    font-size: 1.8rem; /* Øget fra 1.6rem */
+    font-size: 1.8rem;
   }
 
   h3 {
-    font-size: 1.5rem; /* Øget fra 1.3rem */
+    font-size: 1.5rem;
   }
 
   h4 {
@@ -166,10 +165,9 @@ a {
     font-size: 1rem;
   }
 
-  p,
   span,
   button {
-    font-size: 0.9rem; /* Reduceret fra 1rem */
+    font-size: 0.9rem;
     font-weight: 200;
   }
 }
@@ -225,7 +223,7 @@ a {
 }
 .uiverse-icons {
   position: absolute;
-  left: -15%;
+  left: -12%;
   transform: translateX(-50%);
   display: flex;
   gap: 0.2rem;
@@ -312,15 +310,17 @@ input#theme-switch {
   font-size: clamp(1.8rem, 5vw, 4rem) !important;
 }
 
+.section-split__header p {
+  font-size: clamp(1.2rem, 2.5vw, 2rem) !important;
+}
+
 .section-split__content p {
-  font-size: clamp(0.9rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 3vw, 2rem);
 }
 
 .hero-contrast-bg p {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  font-size: clamp(1.5rem, 2.5vw, 1.8rem) !important;
 }
-
-/* Badge styling moved to specific breakpoints */
 
 .portfolio__overlay h3 {
   font-size: clamp(1rem, 2vw, 1.5rem) !important;
@@ -342,19 +342,14 @@ input#theme-switch {
   font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
 }
 
-/* Add smooth transitions to padding for responsive design */
 .section-split__inner,
 .portfolio,
 .hero-sections {
   transition: padding 0.3s ease;
 }
 
-/* ==============================================
-   DESKTOP BREAKPOINT (1200px+)
-   4rem padding standard for all sections
-============================================== */
+/* Media querry desktop (1200px)*/
 @media (min-width: 1200px) {
-  /* Global 4rem padding for all sections */
   .section-split__inner {
     padding: 4rem;
   }
@@ -364,12 +359,10 @@ input#theme-switch {
     right: 4rem;
   }
 
-  /* Hero section - Desktop padding */
   .hero-sections {
     padding: 0 4rem;
   }
 
-  /* Portfolio - Desktop layout */
   .portfolio {
     padding: 10rem 4rem;
   }
@@ -381,48 +374,49 @@ input#theme-switch {
 
   .portfolio__diagonal-grid {
     min-height: 110vh;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  /* Portfolio - Diagonal positioning */
   .portfolio__item--1 {
-    left: 0;
+    left: 5%;
   }
   .portfolio__item--2 {
-    left: 12%;
+    left: 15%;
   }
   .portfolio__item--3 {
-    left: 24%;
+    left: 25%;
   }
   .portfolio__item--4 {
-    left: 36%;
+    left: 35%;
   }
   .portfolio__item--5 {
-    left: 48%;
+    left: 45%;
   }
   .portfolio__item--6 {
-    left: 60%;
+    left: 55%;
   }
 
   .navbar__content {
     padding: 0rem 4rem 2rem 4rem;
   }
 
-  /* Badge styling - Reducerede skriftstørrelser for desktop */
   .badge-card__title {
-    font-size: 1.6rem !important; /* Reduceret fra 2rem */
+    font-size: 1.6rem !important;
   }
 
   .badge-card__desc {
-    font-size: 1rem !important; /* Reduceret fra 1.15rem */
+    font-size: 1rem !important;
+  }
+
+  .close-menu {
+    top: 0.4rem;
+    right: 4.5rem;
   }
 }
 
-/* ==============================================
-   TABLET BREAKPOINT (768px-1199px)  
-   2rem padding for all sections
-============================================== */
+/* Media querry (768px-1199px) */
 @media (max-width: 1199px) and (min-width: 768px) {
-  /* Navbar styling */
   .navbar__content {
     padding: 0 2rem;
   }
@@ -431,7 +425,11 @@ input#theme-switch {
     font-size: 2.5rem;
   }
 
-  /* Global 2rem padding for all sections */
+  .close-menu {
+    top: 0.4rem;
+    right: 2.4rem;
+  }
+
   .section-split__inner {
     padding-inline: 2rem;
   }
@@ -449,7 +447,6 @@ input#theme-switch {
     right: 2rem;
   }
 
-  /* Portfolio - 2 column grid layout */
   .portfolio__diagonal-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
@@ -480,7 +477,6 @@ input#theme-switch {
     position: relative !important;
   }
 
-  /* Typography adjustments */
   .section-split__header h2 {
     font-size: 3.5rem;
   }
@@ -489,12 +485,10 @@ input#theme-switch {
     font-size: 2.2rem;
   }
 
-  /* Menu overlay adjustments */
   .menu-list {
     font-size: 1.5rem;
   }
 
-  /* Badge styling - Tablet */
   .badge-card__title {
     font-size: 1.8rem !important;
   }
@@ -502,34 +496,44 @@ input#theme-switch {
   .badge-card__desc {
     font-size: 1.1rem !important;
   }
+
+  .portfolio__overlay {
+    position: static !important;
+    transform: none !important;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    padding: 1.5rem;
+  }
+
+  .portfolio__overlay h3 {
+    color: white !important;
+  }
+
+  .portfolio__overlay p {
+    color: white !important;
+  }
 }
 
-/* ==============================================
-   MOBILE BREAKPOINT (451px-767px)
-   1rem padding for all sections  
-============================================== */
+/* Media querry (451px-767px) */
 @media (max-width: 767px) and (min-width: 451px) {
-  /* Typography adjustments */
   h1 {
     font-size: 2.25rem;
   }
 
   h2 {
-    font-size: 1.8rem; /* Øget fra 1.6rem */
+    font-size: 1.8rem;
   }
 
   h3 {
-    font-size: 1.5rem; /* Øget fra 1.3rem */
+    font-size: 1.5rem;
   }
 
   h4 {
-    font-size: 1.125rem; /* Øget fra 1rem */
+    font-size: 1.125rem;
   }
 
-  /* Global 1rem padding for all sections */
   .section-split__inner {
     padding-inline: 1rem;
-    padding: 2rem 1rem; /* Reduceret fra 4rem til 2rem */
+    padding: 2rem 1rem;
   }
 
   .portfolio {
@@ -547,13 +551,20 @@ input#theme-switch {
     right: 1rem;
   }
 
-  /* Navbar styling */
+  .navbar__content {
+    padding-right: 1rem;
+  }
+
   .navbar__name {
     font-size: 1.8rem;
     padding-left: 1rem;
   }
 
-  /* Section layouts - Mobile */
+  .close-menu {
+    top: 0.4rem;
+    right: 1.7rem;
+  }
+
   .section-content {
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -574,16 +585,10 @@ input#theme-switch {
     padding: 2rem 0;
   }
 
-  /* Typography */
   .section-split__header h2 {
-    font-size: 2.8rem; /* Øget fra 2.4rem */
+    font-size: 2.8rem;
   }
 
-  .section-split__content p {
-    font-size: 1.4rem; /* Reduceret fra 1.6rem */
-  }
-
-  /* Badge styling - Mobile */
   .badge-card__title {
     font-size: 1.4rem !important;
   }
@@ -592,7 +597,6 @@ input#theme-switch {
     font-size: 1rem !important;
   }
 
-  /* Portfolio - Single column mobile layout */
   .portfolio__diagonal-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -627,24 +631,34 @@ input#theme-switch {
     grid-column: 1;
   }
 
-  /* Badge section mobile adjustments */
   .section-split__header {
-    position: static !important; /* Fjerner sticky positioning */
+    position: static !important;
     top: auto !important;
     background: none !important;
   }
 
   .badges-grid {
-    justify-items: end; /* Flytter badges til højre */
+    justify-items: end;
+  }
+
+  .portfolio__overlay {
+    position: static !important;
+    transform: none !important;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    padding: 1.5rem;
+  }
+
+  .portfolio__overlay h3 {
+    color: white !important;
+  }
+
+  .portfolio__overlay p {
+    color: white !important;
   }
 }
 
-/* ==============================================
-   SMALL MOBILE BREAKPOINT (≤450px)
-   Navbar 2-row layout + 1rem padding
-============================================== */
+/* Media querry under 450px */
 @media (max-width: 450px) {
-  /* Typography adjustments - Small mobile */
   h2 {
     font-size: 1.8rem;
   }
@@ -659,10 +673,9 @@ input#theme-switch {
     font-size: 0.9rem;
   }
 
-  /* Global 1rem padding for all sections */
   .section-split__inner {
     padding-inline: 1rem;
-    padding: 2rem 1rem; /* Reduceret fra 4rem til 2rem */
+    padding: 2rem 1rem;
   }
 
   .portfolio {
@@ -681,18 +694,21 @@ input#theme-switch {
     right: 1rem;
   }
 
-  /* Navbar - 2-row layout for small screens */
   .navbar {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: 1fr;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+  }
+
+  .navbar__right {
+    padding-right: 1rem;
+    gap: 5px;
   }
 
   .navbar__name {
     grid-row: 1;
-    font-size: 1.6rem;
-    padding-left: 0;
+    font-size: 1rem;
+    padding-left: 1rem;
     text-align: center;
   }
 
@@ -701,17 +717,15 @@ input#theme-switch {
     justify-self: center;
   }
 
-  /* Menu overlay adjustments */
   .menu-list {
     font-size: 1.5rem;
   }
 
   .close-menu {
-    top: 1.1rem;
+    top: 0.4rem;
     right: 1.7rem;
   }
 
-  /* Layout adjustments */
   .hero-contrast-bg {
     min-height: 55vh;
   }
@@ -726,15 +740,14 @@ input#theme-switch {
     text-align: left;
   }
 
-  /* Section layouts - Mobile grid */
   .section-content {
     display: grid !important;
     grid-template-columns: 1fr !important;
     flex-direction: column;
     gap: 2rem;
+    padding-inline: 1rem;
   }
 
-  /* Portfolio mobile layout */
   .portfolio__container {
     gap: 3rem;
     display: grid;
@@ -791,7 +804,6 @@ input#theme-switch {
     color: white !important;
   }
 
-  /* Textscroll mobile adjustments */
   .textscroll {
     width: 100vw !important;
     margin: 7rem 0 1rem 0;
@@ -805,14 +817,12 @@ input#theme-switch {
     font-size: 4em;
   }
 
-  /* Portfolio mobile layout */
   .portfolio__container {
     gap: 3rem;
     display: grid;
     grid-template-columns: 1fr;
   }
 
-  /* Badge component - Small mobile styling */
   .badge-card {
     min-width: 0;
     max-width: 100%;
@@ -840,15 +850,12 @@ input#theme-switch {
   .badges-grid {
     grid-template-columns: 1fr;
     gap: 0.7rem;
-    justify-items: end; /* Badges til højre på small mobile også */
+    justify-items: end;
   }
 
-  /* Badge section - Fjern sticky positioning på small mobile */
   .section-split__header {
     position: static !important;
     top: auto !important;
     background: none !important;
   }
 }
-
-/* END OF MEDIA QUERIES - All breakpoints consolidated */

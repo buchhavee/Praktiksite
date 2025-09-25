@@ -1,5 +1,4 @@
-// Theme switcher and menu logic for Astro
-
+// Theme switcher og burger menu logik
 function setupThemeAndMenu() {
   const themeSwitch = document.getElementById("theme-switch");
   const html = document.documentElement;
@@ -7,7 +6,7 @@ function setupThemeAndMenu() {
     return;
   }
 
-  // Load theme from localStorage
+  // Henter gemt theme fra localStorage
   if (localStorage.getItem("theme") === "dark") {
     html.classList.add("dark-theme");
     themeSwitch.checked = true;
@@ -15,7 +14,7 @@ function setupThemeAndMenu() {
     html.classList.remove("dark-theme");
     themeSwitch.checked = false;
   } else {
-    // Hvis intet valgt, brug systemets farveskema
+    // Bruger systemets farveskema hvis intet er valgt
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       html.classList.add("dark-theme");
       themeSwitch.checked = true;
@@ -35,18 +34,40 @@ function setupThemeAndMenu() {
     }
   });
 
+  // Burger menu funktionalitet - så den lukker når man trykker på ting
   const burger = document.getElementById("burger");
   const menuOverlay = document.getElementById("menu-overlay");
   const closeMenu = document.getElementById("close-menu");
-  burger?.addEventListener("click", () => {
-    menuOverlay?.classList.add("open");
-  });
-  closeMenu?.addEventListener("click", () => {
+  const menuItems = document.querySelectorAll(".menu-item");
+
+  function toggleMenu() {
+    menuOverlay?.classList.toggle("open");
+  }
+
+  function closeMenuHandler() {
     menuOverlay?.classList.remove("open");
+  }
+
+  // Åbner/lukker menu når man trykker på burger
+  burger?.addEventListener("click", toggleMenu);
+
+  // Lukker menu når man trykker på X
+  closeMenu?.addEventListener("click", closeMenuHandler);
+
+  // Lukker menu når man trykker på et menu punkt
+  menuItems.forEach((item) => {
+    item.addEventListener("click", closeMenuHandler);
+  });
+
+  // Lukker menu når man trykker udenfor
+  menuOverlay?.addEventListener("click", (e) => {
+    if (e.target === menuOverlay) {
+      closeMenuHandler();
+    }
   });
 }
 
-// Portfolio animations and Intersection Observer
+// Portfolio animationer - får billederne til at fade ind efter hinanden
 function initPortfolioAnimations() {
   const portfolioItems = document.querySelectorAll(".portfolio__item");
   let animatedItems = new Set();
@@ -59,8 +80,8 @@ function initPortfolioAnimations() {
           const index = parseInt(target.dataset.index || "0");
 
           if (!animatedItems.has(index)) {
-            // Delay animation based on order - sequential reveal
-            const delay = (index - 1) * 200; // 200ms delay between each item
+            // Giver delay så de kommer frem efter hinanden
+            const delay = (index - 1) * 200;
 
             setTimeout(() => {
               target.classList.add("animate-in");
@@ -71,50 +92,18 @@ function initPortfolioAnimations() {
       });
     },
     {
-      threshold: 0.2, // Trigger when 20% of item is visible
-      rootMargin: "0px 0px -10% 0px", // Start animation slightly before item comes into view
+      threshold: 0.2,
+      rootMargin: "0px 0px -10% 0px",
     }
   );
 
-  // Observe all portfolio items
+  // Sætter observer på alle portfolio items
   portfolioItems.forEach((item) => {
     observer.observe(item);
   });
-
-  // Optional: Add scroll-based parallax effect for enhanced smoothness
-  let ticking = false;
-
-  function updateParallax() {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.1;
-
-    portfolioItems.forEach((item, index) => {
-      if (item.classList.contains("animate-in")) {
-        // Skip parallax on mobile to avoid transform conflicts
-        if (window.innerWidth > 767) {
-          const parallaxRate = rate * (index + 1) * 0.1;
-          item.style.transform = `translateZ(${parallaxRate}px)`;
-        }
-      }
-    });
-
-    ticking = false;
-  }
-
-  function requestParallaxTick() {
-    if (!ticking) {
-      requestAnimationFrame(updateParallax);
-      ticking = true;
-    }
-  }
-
-  // Add smooth scroll listener for parallax (disabled on mobile)
-  if (window.innerWidth > 767) {
-    window.addEventListener("scroll", requestParallaxTick);
-  }
 }
 
-// General fade-in animations for other sections
+// Fade-in animationer til andre sektioner på siden
 function initGeneralAnimations() {
   function onVisible(entries) {
     entries.forEach((entry) => {
@@ -131,7 +120,7 @@ function initGeneralAnimations() {
   fadeEls.forEach((el) => observer.observe(el));
 }
 
-// Smooth scroll setup
+// Smooth scroll når man trykker på "about" links
 function initSmoothScroll() {
   document.querySelectorAll('a[href="#about"]').forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -146,7 +135,7 @@ function initSmoothScroll() {
   });
 }
 
-// Initialize all functionality
+// Starter alt funktionalitet når siden loader
 function initializeApp() {
   setupThemeAndMenu();
   initGeneralAnimations();
