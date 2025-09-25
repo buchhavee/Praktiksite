@@ -1,33 +1,47 @@
-<footer class="footer fade-in-section">
-  <div class="footer__background-fade"></div>
+<footer id="footer" class="footer">
   <div class="footer__container">
-    <div class="footer__content">
-      <h2 class="footer__title">Kontakt</h2>
-      <p class="footer__subtitle">Lad os tage en snak :)</p>
-      <p class="footer__description">Hvis i har plads til en kreativ og engageret praktikant, så vil jeg meget gerne høre fra jer</p>
+    <div class="footer__header">
+      <div class="footer__info-row">
+        <div class="footer__left-info">
+          <span class="footer__tagline">Multimediedesign, KEA</span>
+        </div>
+        <div class="footer__availability">
+          <span class="footer__status">Praktikforløb</span>
+          <span class="footer__date">d. 19. januar <br />til 26. marts 2026</span>
+        </div>
+      </div>
+    </div>
 
-      <div class="footer__contact">
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">Telefon</span>
-          <a href="tel:+4524264348" class="footer__contact-link">
-            <span class="footer__contact-icon">📞</span>
-            +45 24 26 43 48
-          </a>
+    <div class="footer__main">
+      <h2 class="footer__title">INTERESSERET I AT<br />ARBEJDE SAMMEN?</h2>
+      <div class="footer__hand-emoji">✌️</div>
+    </div>
+
+    <div class="footer__contact">
+      <p class="footer__contact-text">Send mig en mail eller ring på:</p>
+      <a href="mailto:buchhavee@gmail.com" class="footer__email">buchhavee@gmail.com</a>
+      <a href="tel:+4524264348" class="footer__email">+45 24 26 43 48</a>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__social">
+        <a href="https://www.linkedin.com/in/mads-christiansen-02a951105/" target="_blank" class="footer__social-link">LINKEDIN</a>
+        <a href="mailto:buchhavee@gmail.com" class="footer__social-link">EMAIL</a>
+        <a href="https://www.instagram.com/buchhavee/" target="_blank" class="footer__social-link">INSTAGRAM</a>
+      </div>
+
+      <div class="footer__final-row">
+        <div class="footer__credits">
+          <p>Design af: <a href="#" class="footer__credit-link">Mads Buchhave</a></p>
         </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">Email</span>
-          <a href="mailto:buchhavee@gmail.com" class="footer__contact-link">
-            <span class="footer__contact-icon">✉️</span>
-            buchhavee@gmail.com
-          </a>
+
+        <div class="footer__back-to-top">
+          <a href="#" class="footer__top-link">Tilbage til toppen</a>
         </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-label">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/mads-christiansen-7a5b1a2a0/" target="_blank" rel="noopener noreferrer" class="footer__contact-link">
-            <span class="footer__contact-icon">🔗</span>
-            Mads Christiansen
-          </a>
-        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <p>©2025 – All Rights Reserved</p>
       </div>
     </div>
   </div>
@@ -35,230 +49,219 @@
 
 <style>
   .footer {
-    background: transparent;
-    color: var(--color-text);
+    background: var(--color-medium);
+    color: var(--color-lightest);
+    padding: 4rem 2rem;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
-    margin-top: 6rem;
-    transition: all 0.3s;
+    transition:
+      background 0.3s,
+      color 0.3s;
   }
 
-  .footer__background-fade {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--color-accent);
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    z-index: 0;
-  }
-
-  .footer.visible .footer__background-fade {
-    opacity: 1;
+  html.dark-theme .footer {
+    background: var(--color-darkest);
   }
 
   .footer__container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 4rem;
-    position: relative;
-    z-index: 1;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    min-height: 80vh;
+    gap: 2rem;
   }
 
-  .footer__content {
+  .footer__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .footer__info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer__left-info {
+    display: flex;
+  }
+
+  .footer__tagline {
+    opacity: 0.8;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    transition: color 0.3s;
+  }
+
+  .footer__availability {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 0.2rem;
+  }
+
+  .footer__status,
+  .footer__date {
+    opacity: 0.8;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    transition: color 0.3s;
+  }
+
+  .footer__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    position: relative;
   }
 
   .footer__title {
-    font-size: clamp(2.5rem, 6vw, 5rem);
     font-family: "polymath-display", sans-serif;
-    font-weight: 1000;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-    transition: color 0.3s;
+    font-weight: 900;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.9;
     letter-spacing: -0.02em;
-  }
-
-  .footer__subtitle {
-    font-size: clamp(1.4rem, 3vw, 2.2rem);
-    font-weight: 300;
-    margin-bottom: 2.5rem;
+    margin: 0;
+    position: relative;
     color: var(--color-text);
     transition: color 0.3s;
-    opacity: 0.9;
   }
 
-  .footer__description {
-    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-    font-weight: 200;
-    line-height: 1.7;
-    margin-bottom: 4rem;
-    color: var(--color-text);
-    transition: color 0.3s;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 4rem;
+  .footer__hand-emoji {
+    position: absolute;
+    font-size: clamp(2rem, 4vw, 4rem);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
 
   .footer__contact {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
+    text-align: center;
+    margin: 2rem 0;
   }
 
-  .footer__contact-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1.5rem 2rem;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .footer__contact-item:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .footer__contact-label {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    font-weight: 500;
+  .footer__contact-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
     color: var(--color-text);
-    opacity: 0.7;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     transition: color 0.3s;
   }
 
-  .footer__contact-link {
+  .footer__email {
     color: var(--color-text);
     text-decoration: none;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 500;
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
     transition:
       opacity 0.3s ease,
-      transform 0.2s ease,
       color 0.3s;
+  }
+
+  .footer__email:hover {
+    opacity: 0.7;
+  }
+
+  .footer__bottom {
     display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .footer__social-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-dark);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .footer__social-link:hover {
+    background: var(--color-light);
+    border-color: var(--color-dark);
+  }
+
+  .footer__final-row {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.8rem;
   }
 
-  .footer__contact-icon {
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
+  .footer__copyright {
+    text-align: center;
+    margin-top: 1rem;
   }
 
-  .footer__contact-link:hover .footer__contact-icon {
-    transform: scale(1.2) rotate(10deg);
+  .footer__copyright p {
+    margin: 0;
+    opacity: 0.8;
+    color: var(--color-text);
+    transition: color 0.3s;
   }
 
-  /* Når baggrunden fader ind, ændres tekstfarven til at kontrastere */
-  .footer.visible .footer__title,
-  .footer.visible .footer__subtitle,
-  .footer.visible .footer__description,
-  .footer.visible .footer__contact-link,
-  .footer.visible .footer__contact-label {
-    color: var(--color-darkest);
+  .footer__credits p {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text);
+    transition: color 0.3s;
   }
 
-  .footer.visible .footer__contact-item {
-    background: rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0.2);
+  .footer__credit-link {
+    color: var(--color-text);
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: color 0.3s;
   }
 
-  .footer.visible .footer__contact-item:hover {
-    background: rgba(0, 0, 0, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  .footer__back-to-top {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
   }
 
-  /* Dark theme adjustments */
-  html.dark-theme .footer.visible .footer__title,
-  html.dark-theme .footer.visible .footer__subtitle,
-  html.dark-theme .footer.visible .footer__description,
-  html.dark-theme .footer.visible .footer__contact-link,
-  html.dark-theme .footer.visible .footer__contact-label {
-    color: var(--color-lightest);
+  .footer__top-link {
+    color: var(--color-text);
+    text-decoration: none;
+    opacity: 0.8;
+    line-height: 1.4;
+    text-align: right;
+    transition: color 0.3s;
   }
 
-  html.dark-theme .footer.visible .footer__contact-item {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-
-  html.dark-theme .footer.visible .footer__contact-item:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  /* Mobile responsive - følger samme padding som resten af siden */
-  @media (max-width: 1199px) and (min-width: 768px) {
-    .footer__container {
-      padding: 0 2rem;
-    }
-
-    .footer__contact-item {
-      padding: 1.2rem 1.5rem;
-    }
-  }
-
-  @media (max-width: 767px) and (min-width: 451px) {
-    .footer__container {
-      padding: 0 1rem;
-    }
-
+  @media (max-width: 768px) {
     .footer {
-      padding: 2rem 0;
-      min-height: 80vh;
+      padding: 3rem 1rem;
     }
 
-    .footer__contact {
-      gap: 1.5rem;
+    .footer__title {
+      font-size: clamp(2.5rem, 12vw, 4rem);
     }
 
-    .footer__contact-item {
-      padding: 1rem 1.2rem;
-    }
-  }
-
-  @media (max-width: 450px) {
-    .footer__container {
-      padding: 0 1rem;
-    }
-
-    .footer {
-      padding: 2rem 0;
-      min-height: 70vh;
-    }
-
-    .footer__contact {
-      gap: 1rem;
-    }
-
-    .footer__contact-item {
-      padding: 0.8rem 1rem;
-    }
-
-    .footer__contact-link {
-      flex-direction: column;
-      gap: 0.5rem;
+    .footer__hand-emoji {
+      font-size: clamp(3rem, 6vw, 5rem);
     }
   }
 </style>

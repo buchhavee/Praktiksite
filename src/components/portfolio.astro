@@ -2,7 +2,7 @@
 // Portfolio component med links og korrekte billedstier
 ---
 
-<section class="portfolio">
+<section id="portfolio" class="portfolio">
   <div class="portfolio__container">
     <div class="portfolio__header fade-in-section">
       <h2>Mine Projekter</h2>
@@ -12,7 +12,7 @@
     <div class="portfolio__diagonal-grid">
       <a href="https://www.youtube.com/watch?v=pHTIH-At6lY" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--1" data-index="1">
-          <img src="/images/portfolio-nb-9t7.jpg" alt="Projekt 1" loading="lazy" />
+          <img src="/images/portfolio-nb-9t7.webp" alt="Projekt 1" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>New Balance & 9t7 "Better Together"</h3>
             <p>En CPH Marathon dokumentar</p>
@@ -22,7 +22,7 @@
 
       <a href="https://www.instagram.com/reel/DG4dxjMSxUD/?hl=en" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--2" data-index="2">
-          <img src="/images/portfolio-kaleg.jpg" alt="Projekt 2" loading="lazy" />
+          <img src="/images/portfolio-kaleg.webp" alt="Projekt 2" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>Kaleg "Together we rise"</h3>
             <p>En reklame for brandet Kaleg</p>
@@ -32,7 +32,7 @@
 
       <a href="https://open.spotify.com/track/5lZny8ZmRtXueq7D3LTgb5?si=3c8e30b4f8224bbb" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--3" data-index="3">
-          <img src="/images/portfolio-ozzy.jpg" alt="Projekt 3" loading="lazy" />
+          <img src="/images/portfolio-ozzy.webp" alt="Projekt 3" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>Ozzy</h3>
             <p>Jeg har produceret sangene "Samme side", "Visner", "Gå, Bare Lidt" og "Indre" <br /> "Samme Side" er blevet certificeret guld i Danmark.</p>
@@ -42,7 +42,7 @@
 
       <a href="https://kc-kopi.netlify.app/" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--4" data-index="4">
-          <img src="/images/portfolio-kc.png" alt="Projekt 4" loading="lazy" />
+          <img src="/images/portfolio-kc.webp" alt="Projekt 4" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>2. semester eksamen</h3>
             <p>Min eksamen i 2. semester bestod af et gruppeprojekt, hvor vi udarbejdede en komplet hjemmeside og digital tilstedeværelse for vinimportøren Kahlenberg & Christiansen.</p>
@@ -52,7 +52,7 @@
 
       <a href="https://www.resident.dk/" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--5" data-index="5">
-          <img src="/images/portfolio-campari.png" alt="Projekt 5" loading="lazy" />
+          <img src="/images/portfolio-campari.webp" alt="Projekt 5" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>Campari "Negroni week"</h3>
             <p>En kampagne for Campari i forbindelse med "Negroni week".</p>
@@ -62,7 +62,7 @@
 
       <a href="https://www.resident.dk/" target="_blank" rel="noopener noreferrer" class="portfolio__link">
         <div class="portfolio__item portfolio__item--6" data-index="6">
-          <img src="/images/portfolio-quint.png" alt="Projekt 6" loading="lazy" />
+          <img src="/images/portfolio-quint.webp" alt="Projekt 6" loading="lazy" />
           <div class="portfolio__overlay">
             <h3>Quint "Hive Mind-serie"</h3>
             <p>En serie af videoer og kampagner for Quint, der udforsker emner som mental sundhed og fællesskab.</p>
@@ -75,7 +75,6 @@
 
 <style>
   .portfolio {
-    padding: 4rem 2rem;
     margin: 0 auto;
     max-width: 2100px;
     overflow: visible;
@@ -104,11 +103,12 @@
 
   .portfolio__diagonal-grid {
     position: relative;
-    min-height: 1200px;
+    min-height: 1400px;
     width: 100%;
-    max-width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     overflow: visible;
-    padding-bottom: 4rem;
+    padding: 0 2rem 4rem 2rem;
   }
 
   .portfolio__item {
@@ -142,41 +142,40 @@
     z-index: 10;
   }
 
-  /* Skrå diagonal placering fra venstre top til højre bund */
   .portfolio__item--1 {
     top: 0;
-    left: 4%;
-    z-index: 6;
+    left: 5%;
+    z-index: 1;
   }
 
   .portfolio__item--2 {
-    top: 150px;
-    left: 13%;
-    z-index: 5;
-  }
-
-  .portfolio__item--3 {
-    top: 300px;
-    left: 25%;
-    z-index: 4;
-  }
-
-  .portfolio__item--4 {
-    top: 450px;
-    left: 37%;
-    z-index: 3;
-  }
-
-  .portfolio__item--5 {
-    top: 600px;
-    left: 50%;
+    top: 180px;
+    left: 15%;
     z-index: 2;
   }
 
+  .portfolio__item--3 {
+    top: 360px;
+    left: 25%;
+    z-index: 3;
+  }
+
+  .portfolio__item--4 {
+    top: 540px;
+    left: 35%;
+    z-index: 4;
+  }
+
+  .portfolio__item--5 {
+    top: 720px;
+    left: 45%;
+    z-index: 5;
+  }
+
   .portfolio__item--6 {
-    top: 750px;
-    left: 68%;
-    z-index: 1;
+    top: 900px;
+    left: 55%;
+    z-index: 6;
   }
 
   .portfolio__item img {
@@ -216,5 +215,33 @@
     opacity: 0.9;
     font-size: 1rem;
     color: white !important;
+  }
+
+  /* Mobil overlay regler */
+  @media (max-width: 1199px) {
+    .portfolio__overlay {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      transform: translateY(0) !important;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%) !important;
+      padding: 1.5rem !important;
+      transition: none !important;
+    }
+
+    .portfolio__item:hover .portfolio__overlay {
+      transform: translateY(0) !important;
+    }
+
+    .portfolio__overlay h3 {
+      color: white !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    .portfolio__overlay p {
+      color: white !important;
+      opacity: 0.9 !important;
+    }
   }
 </style>

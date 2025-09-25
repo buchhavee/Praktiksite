@@ -29,9 +29,9 @@
   <div class="menu-overlay" id="menu-overlay">
     <button class="close-menu" id="close-menu" aria-label="Close menu">×</button>
     <ul class="menu-list">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" class="menu-item">Om mig</a></li>
+      <li><a href="#portfolio" class="menu-item">Mine projekter</a></li>
+      <li><a href="#footer" class="menu-item">Kontakt</a></li>
     </ul>
   </div>
 
@@ -64,7 +64,6 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: 0.8rem;
       height: 100%;
       justify-content: flex-end;
     }
@@ -116,8 +115,6 @@
     }
     .close-menu {
       position: absolute;
-      top: 1.3rem;
-      right: 2.7rem;
       font-size: 2rem;
       background: none;
       border: none;
