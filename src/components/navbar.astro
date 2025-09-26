@@ -31,6 +31,8 @@
     <ul class="menu-list">
       <li><a href="#about" class="menu-item">Om mig</a></li>
       <li><a href="#portfolio" class="menu-item">Mine projekter</a></li>
+      <li><a href="#praktik" class="menu-item">Praktik</a></li>
+      <li><a href="#badgesection" class="menu-item">Erfaring</a></li>
       <li><a href="#footer" class="menu-item">Kontakt</a></li>
     </ul>
   </div>
@@ -129,6 +131,23 @@
       font-size: 2.5rem;
       text-align: center;
     }
+
+    .menu-list li {
+      position: relative;
+    }
+
+    .menu-list li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      bottom: -1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 75px;
+      height: 2px;
+      background: var(--color-white);
+      opacity: 0.1;
+    }
+
     .menu-list a {
       color: var(--color-white);
       text-decoration: none;

@@ -3,7 +3,7 @@
     <div class="footer__header">
       <div class="footer__info-row">
         <div class="footer__left-info">
-          <span class="footer__tagline">Multimediedesign, KEA</span>
+          <span class="footer__tagline">Multimediedesign, EK</span>
         </div>
         <div class="footer__availability">
           <span class="footer__status">Praktikforløb</span>
@@ -47,7 +47,7 @@
   .footer {
     background: var(--color-medium);
     color: var(--color-lightest);
-    padding: 4rem 2rem;
+    padding: 2rem;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -65,10 +65,9 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-rows: auto 1fr auto auto;
+    display: flex;
+    flex-direction: column;
     min-height: 80vh;
-    gap: 1rem;
   }
 
   .footer__header {
@@ -77,6 +76,7 @@
     gap: 1rem;
     font-size: 0.9rem;
     line-height: 1.4;
+    margin-bottom: 2rem;
   }
 
   .footer__info-row {
@@ -118,6 +118,8 @@
     align-items: center;
     text-align: center;
     position: relative;
+    flex: 1;
+    margin-bottom: 2rem;
   }
 
   .footer__title {
@@ -145,7 +147,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 2rem 0;
+    margin-bottom: 2rem;
     gap: 1rem;
   }
 
@@ -174,7 +176,6 @@
   .footer__bottom {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     font-size: 0.85rem;
   }
 
