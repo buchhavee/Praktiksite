@@ -664,6 +664,10 @@ input#theme-switch {
   .portfolio__overlay p {
     color: white !important;
   }
+
+  .textscroll {
+    padding-top: 4rem !important;
+  }
 }
 
 /* Media querry under 450px */
@@ -815,7 +819,7 @@ input#theme-switch {
 
   .textscroll {
     width: 100vw !important;
-    margin: 7rem 0 1rem 0;
+    margin: 4rem 0 1rem 0;
     margin-left: 50% !important;
     transform: translateX(-50%) !important;
     position: relative !important;
